@@ -1,0 +1,18 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Installasjon av programvare
+    chapters:
+    - file: 0_installasjon_av_programvare/Julia
+    - file: 0_installasjon_av_programvare/vscode  
+    - file: 0_installasjon_av_programvare/pluto/pluto
+      sections:
+      - file: 0_installasjon_av_programvare/pluto/brukepluto
+  - caption: Introduksjon til Julia
+    chapters:
+    - file: 1_basic_julia/basicjulia.ipynb
+    - file: 1_basic_julia/indeksering_og_plotting.ipynb
+    - file: 1_basic_julia/summering_og_2grads.ipynb
