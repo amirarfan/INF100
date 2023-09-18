@@ -66,6 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'x_oppgaver/Oppgaver_Uke38';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Summering, lister av tall, og løsning av 2. grads likninger (Forelesningen 14 sept 2023)" href="../1_basic_julia/summering_og_2grads.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -170,6 +171,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../1_basic_julia/basicjulia.html">Grunnleggende Julia</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1_basic_julia/indeksering_og_plotting.html">Indeksering, håndtering av lister, og plotting i Julia</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1_basic_julia/summering_og_2grads.html">Summering, lister av tall, og løsning av 2. grads likninger (Forelesningen 14 sept 2023)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Ukentlige Oppgaver</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Oppgaver Uke 38</a></li>
 </ul>
 
     </div>
@@ -370,10 +375,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5-beregning-av-summen-av-de-forste-n-partallene-og-oddetallene">Oppgave 5 - Beregning av summen av de første ( n ) partallene og oddetallene</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#del-1-partall">Del 1: Partall</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#del-2-oddetall">Del 2: Oddetall</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formler">Formler</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#losning">Løsning</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formler">Formler</a></li>
 </ul>
             </nav>
         </div>
@@ -394,7 +396,8 @@ document.write(`
 \[x = 2 \sin(θ)\]</div>
 <div class="math notranslate nohighlight">
 \[y = \frac{t-1} {t + 1}\]</div>
-<p>$$z = \frac {\sin(\theta^2)} {\theta^2}</p>
+<div class="math notranslate nohighlight">
+\[z = \frac {\sin(\theta^2)} {\theta^2}\]</div>
 </section>
 <section id="oppgave-2">
 <h2>Oppgave 2<a class="headerlink" href="#oppgave-2" title="Permalink to this heading">#</a></h2>
@@ -431,24 +434,6 @@ K=\frac{1.2}{x}\left[\sqrt{16 x^2+1}+\frac{1}{4 x} \ln \left(\sqrt{16 x^2+1}+4 x
 <p>Etter å ha beregnet summen ved hjelp av for-løkkene, tenk over følgende:</p>
 <p>For de første ( n ) partallene, hva er summen? Kan du komme opp med en formel for denne summen?</p>
 <p>For de første ( n ) oddetallene, hva er summen? Har du en ide om en formel for denne summen?</p>
-<section id="losning">
-<h3>Løsning<a class="headerlink" href="#losning" title="Permalink to this heading">#</a></h3>
-<div id="solution" style="border: 1px solid black; padding: 10px; display: none;">
-Formelen for summen av de første \( n \) partallene er:
-$$ \sum_{i=1}^{n} 2i = n(n + 1) $$
-<p>Formelen for summen av de første ( n ) oddetallene er:
-$<span class="math notranslate nohighlight">\( \sum_{i=1}^{n} (2i-1) = n^2 \)</span>$</p>
-</div>
-<p><span id="hoverArea" style="border: 1px solid black; padding: 10px; cursor: pointer;">Pek musen over her for å se løsning på formelene</span></p>
-<script>
-document.getElementById('hoverArea').addEventListener('mouseover', function() {
-    document.getElementById('solution').style.display = 'block';
-});
-document.getElementById('hoverArea').addEventListener('mouseout', function() {
-    document.getElementById('solution').style.display = 'none';
-});
-</script>
-</section>
 </section>
 </section>
 
@@ -483,6 +468,15 @@ document.getElementById('hoverArea').addEventListener('mouseout', function() {
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../1_basic_julia/summering_og_2grads.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Summering, lister av tall, og løsning av 2. grads likninger (Forelesningen 14 sept 2023)</p>
+      </div>
+    </a>
 </div></div>
   
 </div>
@@ -508,10 +502,7 @@ document.getElementById('hoverArea').addEventListener('mouseout', function() {
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-5-beregning-av-summen-av-de-forste-n-partallene-og-oddetallene">Oppgave 5 - Beregning av summen av de første ( n ) partallene og oddetallene</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#del-1-partall">Del 1: Partall</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#del-2-oddetall">Del 2: Oddetall</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formler">Formler</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#losning">Løsning</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formler">Formler</a></li>
 </ul>
   </nav></div>
 
