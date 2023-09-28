@@ -185,6 +185,11 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Løsninger til ukentlige oppgaver</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../x_oppgaver/oppgaver_uke38_losninger.html">Løsningsforslag Oppgaver Uke 38</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../x_oppgaver/oppgaver_uke39_losninger.html">Løsningsforslag Oppgaver Uke 39</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -383,6 +388,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#del-3-nyttige-ting">Del 3:  Nyttige ting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gjett-tallet-spill">Gjett-tallet spill</a></li>
 </ul>
             </nav>
         </div>
@@ -633,6 +639,45 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="gjett-tallet-spill">
+<h2>Gjett-tallet spill<a class="headerlink" href="#gjett-tallet-spill" title="Permalink to this heading">#</a></h2>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Importerer Random-biblioteket for å generere tilfeldige tall</span>
+<span class="k">using</span><span class="w"> </span><span class="n">Random</span>
+
+<span class="k">function</span><span class="w"> </span><span class="n">gjett_tallet</span><span class="p">(</span><span class="n">max_tall</span><span class="p">)</span>
+<span class="w">    </span><span class="c"># Genererer et tilfeldig tall mellom 0 og max_tall</span>
+<span class="w">    </span><span class="n">tilfeldig_tall</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">(</span><span class="mi">0</span><span class="o">:</span><span class="n">max_tall</span><span class="p">)</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Jeg tenker på et tall mellom 0 og </span><span class="si">$max_tall</span><span class="s">. Kan du gjette hva det er?&quot;</span><span class="p">)</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c"># Initialiserer en variabel for å holde styr på antall forsøk</span>
+<span class="w">    </span><span class="n">antall_forsøk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="c"># Starter en uendelig løkke</span>
+<span class="w">        </span><span class="c"># Øker antall_forsøk med 1 for hver iterasjon</span>
+<span class="w">        </span><span class="n">antall_forsøk</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="c"># Ber brukeren om å legge inn et gjetning</span>
+<span class="w">        </span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Din gjetning: &quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="n">gjetning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parse</span><span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">readline</span><span class="p">())</span><span class="w">  </span><span class="c"># Konverterer inndata til heltall</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="c"># Sjekker om gjetningen er korrekt</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">gjetning</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">tilfeldig_tall</span>
+<span class="w">            </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Gratulerer! Du gjettet riktig etter </span><span class="si">$antall_forsøk</span><span class="s"> forsøk.&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="k">break</span><span class="w">  </span><span class="c"># Avslutter løkken</span>
+<span class="w">        </span><span class="k">elseif</span><span class="w"> </span><span class="n">gjetning</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tilfeldig_tall</span>
+<span class="w">            </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;For lavt! Prøv igjen.&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">            </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;For høyt! Prøv igjen.&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">end</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c"># Kaller funksjonen med maksimalt tall som 100</span>
+<span class="n">gjett_tallet</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -708,6 +753,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#del-3-nyttige-ting">Del 3:  Nyttige ting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gjett-tallet-spill">Gjett-tallet spill</a></li>
 </ul>
   </nav></div>
 

@@ -23,6 +23,12 @@ parts:
     chapters:
     - file: 2_matematiske_problemer/numerisk_derivasjon_og_rekker.ipynb
   - caption: Ukentlige Oppgaver
-    chapters:
+    chapters: 
     - file: x_oppgaver/Oppgaver_Uke38.ipynb
     - file: x_oppgaver/Oppgaver_Uke39.ipynb
+  - caption: Løsninger til ukentlige oppgaver
+    chapters:
+    - file: x_oppgaver/oppgaver_uke38_losninger.ipynb
+    - file: x_oppgaver/oppgaver_uke39_losninger.ipynb
+   
+      
