@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Introduksjon til Pluto Notebooks i Julia &#8212; INF100 Pensum</title>
+    <title>Feilsøking av Plots pakken i Julia &#8212; INF100 Pensum</title>
   
   
   
@@ -19,53 +19,53 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '0_installasjon_av_programvare/pluto/pluto';</script>
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Bruke Pluto Notebooks" href="brukepluto.html" />
-    <link rel="prev" title="Feilsøking av Plots pakken i Julia" href="../feilsokeplots.html" />
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '0_installasjon_av_programvare/feilsokeplots';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduksjon til Pluto Notebooks i Julia" href="pluto/pluto.html" />
+    <link rel="prev" title="Installasjon av Visual Studio Code og Julia Extension" href="vscode.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -93,7 +93,7 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="search-button__overlay"></div>
     <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
-      action="../../search.html"
+      action="../search.html"
       method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
   <input type="search"
@@ -131,7 +131,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="../../intro.html">
+<a class="navbar-brand logo" href="../intro.html">
   
   
   
@@ -141,8 +141,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../_static/julia-logo-color.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../_static/julia-logo-color.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/julia-logo-color.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/julia-logo-color.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
@@ -151,37 +151,37 @@ const thebe_selector_output = ".output, .cell_output"
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../../intro.html">
+                <a class="reference internal" href="../intro.html">
                     INF100 - Prinsipper i informasjonsbehandling
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installasjon av programvare</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Julia.html">Installasjon av Julia på din personlige PC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vscode.html">Installasjon av Visual Studio Code og Julia Extension</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../feilsokeplots.html">Feilsøking av Plots pakken i Julia</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Introduksjon til Pluto Notebooks i Julia</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="brukepluto.html">Bruke Pluto Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Julia.html">Installasjon av Julia på din personlige PC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vscode.html">Installasjon av Visual Studio Code og Julia Extension</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Feilsøking av Plots pakken i Julia</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="pluto/pluto.html">Introduksjon til Pluto Notebooks i Julia</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="pluto/brukepluto.html">Bruke Pluto Notebooks</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduksjon til Julia</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../1_basic_julia/basicjulia.html">Grunnleggende Julia</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../1_basic_julia/indeksering_og_plotting.html">Indeksering, håndtering av lister, og plotting i Julia</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../1_basic_julia/summering_og_2grads.html">Summering, lister av tall, og løsning av 2. grads likninger (Forelesningen 14 sept 2023)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../1_basic_julia/summering_og_2grads_forsettelse.html">Forelesning 21.09.2023</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../1_basic_julia/funksjoner_og_vektoroperasjoner.html">Forelesning om Julia: Funksjoner, ‘.’ Operatoren og Nyttige Ting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_basic_julia/basicjulia.html">Grunnleggende Julia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_basic_julia/indeksering_og_plotting.html">Indeksering, håndtering av lister, og plotting i Julia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_basic_julia/summering_og_2grads.html">Summering, lister av tall, og løsning av 2. grads likninger (Forelesningen 14 sept 2023)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_basic_julia/summering_og_2grads_forsettelse.html">Forelesning 21.09.2023</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_basic_julia/funksjoner_og_vektoroperasjoner.html">Forelesning om Julia: Funksjoner, ‘.’ Operatoren og Nyttige Ting</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Matematiske Problemer</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../2_matematiske_problemer/numerisk_derivasjon_og_rekker.html">Forelesning 28.09.2023: Derivasjon og Rekker i Julia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_matematiske_problemer/numerisk_derivasjon_og_rekker.html">Forelesning 28.09.2023: Derivasjon og Rekker i Julia</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ukentlige Oppgaver</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../x_oppgaver/Oppgaver_Uke38.html">Oppgaver Uke 38</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../x_oppgaver/Oppgaver_Uke39.html">Oppgaver Uke 39</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../x_oppgaver/Oppgaver_Uke38.html">Oppgaver Uke 38</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../x_oppgaver/Oppgaver_Uke39.html">Oppgaver Uke 39</a></li>
 
 
 </ul>
@@ -255,7 +255,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/amirarfan/INF100/issues/new?title=Issue%20on%20page%20%2F0_installasjon_av_programvare/pluto/pluto.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/amirarfan/INF100/issues/new?title=Issue%20on%20page%20%2F0_installasjon_av_programvare/feilsokeplots.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -285,7 +285,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/0_installasjon_av_programvare/pluto/pluto.md" target="_blank"
+      <li><a href="../_sources/0_installasjon_av_programvare/feilsokeplots.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -367,7 +367,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introduksjon til Pluto Notebooks i Julia</h1>
+    <h1>Feilsøking av Plots pakken i Julia</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -377,10 +377,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-er-pluto">Hva er Pluto?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvorfor-pluto-i-dette-faget">Hvorfor Pluto i dette faget?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sjekk-om-du-har-pluto-installert">Sjekk om du har Pluto installert</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#starte-pluto-fra-vscode">Starte Pluto fra VSCode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppdatering-av-plots-pakken">1. Oppdatering av Plots pakken</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slette-plots-pakken-og-installere-fra-github">2. Slette Plots pakken og installere fra Github</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bruke-plotly-backend-i-plots">3. Bruke Plotly backend i Plots</a></li>
 </ul>
             </nav>
         </div>
@@ -392,52 +391,43 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="introduksjon-til-pluto-notebooks-i-julia">
-<h1>Introduksjon til Pluto Notebooks i Julia<a class="headerlink" href="#introduksjon-til-pluto-notebooks-i-julia" title="Permalink to this heading">#</a></h1>
-<p>Velkommen til en grunnleggende guide om hvordan du bruker Pluto notebooks i Julia via VSCode!</p>
-<section id="hva-er-pluto">
-<h2>Hva er Pluto?<a class="headerlink" href="#hva-er-pluto" title="Permalink to this heading">#</a></h2>
-<p>Pluto er en interaktiv notebook for Julia programmeringsspråk. Med Pluto kan du skrive og kjøre Julia-kode i en interaktiv stil, noe som gjør det enkelt å eksperimentere, visualisere data og dele resultater.</p>
-</section>
-<section id="hvorfor-pluto-i-dette-faget">
-<h2>Hvorfor Pluto i dette faget?<a class="headerlink" href="#hvorfor-pluto-i-dette-faget" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>Interaktivitet</strong>: Pluto lar deg kjøre kodeblokker individuelt, noe som gir umiddelbar tilbakemelding.</p></li>
-<li><p><strong>Visualisering</strong>: Enkelt å lage og vise grafer og data.</p></li>
-<li><p><strong>Dokumentasjon</strong>: Kombiner kode, resultater og tekst i ett dokument.</p></li>
-</ul>
-</section>
-<section id="sjekk-om-du-har-pluto-installert">
-<h2>Sjekk om du har Pluto installert<a class="headerlink" href="#sjekk-om-du-har-pluto-installert" title="Permalink to this heading">#</a></h2>
-<p>Selv om du kanskje allerede har installert Pluto, la oss sørge for at alt er på plass:</p>
-<ol class="arabic simple">
-<li><p>Åpne VSCode.</p></li>
-<li><p>Start Julia terminalen ved å trykke <code class="docutils literal notranslate"><span class="pre">Ctrl+J</span></code> og deretter <code class="docutils literal notranslate"><span class="pre">Ctrl+O</span></code> (for Windows) eller <code class="docutils literal notranslate"><span class="pre">Cmd+J</span></code> og deretter <code class="docutils literal notranslate"><span class="pre">Cmd+O</span></code> (for Mac).</p></li>
-<li><p>Skriv inn følgende kommando:</p></li>
-</ol>
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">Pkg</span>
-<span class="n">Pkg</span><span class="o">.</span><span class="n">installed</span><span class="p">()[</span><span class="s">&quot;Pluto&quot;</span><span class="p">]</span>
+  <section class="tex2jax_ignore mathjax_ignore" id="feilsoking-av-plots-pakken-i-julia">
+<h1>Feilsøking av Plots pakken i Julia<a class="headerlink" href="#feilsoking-av-plots-pakken-i-julia" title="Permalink to this heading">#</a></h1>
+<p>Det er flere som opplever problemer med Plots pakken i Julia, her er noen løsninger du kan prøve:</p>
+<section id="oppdatering-av-plots-pakken">
+<h2>1. Oppdatering av Plots pakken<a class="headerlink" href="#oppdatering-av-plots-pakken" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">Pkg</span><span class="p">;</span>
+<span class="n">Pkg</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&quot;Plots&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Hvis du får en versjonsnummer tilbake, betyr det at Pluto er installert. Hvis ikke, følg neste trinn.</p>
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">Pkg</span>
-<span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;Pluto&quot;</span><span class="p">)</span><span class="w"> </span><span class="c"># Bemerk at add er med en liten a, alt er case-sensitivt.</span>
-</pre></div>
+</div>
 </div>
 </section>
-<section id="starte-pluto-fra-vscode">
-<h2>Starte Pluto fra VSCode<a class="headerlink" href="#starte-pluto-fra-vscode" title="Permalink to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>I Julia terminalen i VSCode, skriv:</p></li>
-</ol>
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">Pluto</span>
-<span class="n">Pluto</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<section id="slette-plots-pakken-og-installere-fra-github">
+<h2>2. Slette Plots pakken og installere fra Github<a class="headerlink" href="#slette-plots-pakken-og-installere-fra-github" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">Pkg</span><span class="p">;</span>
+<span class="n">Pkg</span><span class="o">.</span><span class="n">rm</span><span class="p">(</span><span class="s">&quot;Plots&quot;</span><span class="p">)</span>
+<span class="n">Pkg</span><span class="o">.</span><span class="sa">pkg</span><span class="s">&quot;add Plots#master&quot;</span>
 </pre></div>
 </div>
-<p>Dette vil starte Pluto serveren, og en nettleserfane skal åpne med Pluto-grensesnittet.</p>
-</section>
-<div class="toctree-wrapper compound">
 </div>
+</div>
+</section>
+<section id="bruke-plotly-backend-i-plots">
+<h2>3. Bruke Plotly backend i Plots<a class="headerlink" href="#bruke-plotly-backend-i-plots" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">Plots</span><span class="p">;</span>
+<span class="n">plotly</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -449,16 +439,16 @@ document.write(`
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "julia-1.9"
         },
         kernelOptions: {
-            name: "python3",
-            path: "./0_installasjon_av_programvare\pluto"
+            name: "julia-1.9",
+            path: "./0_installasjon_av_programvare"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'julia-1.9'</script>
 
                 </article>
               
@@ -472,20 +462,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../feilsokeplots.html"
+       href="vscode.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Feilsøking av Plots pakken i Julia</p>
+        <p class="prev-next-title">Installasjon av Visual Studio Code og Julia Extension</p>
       </div>
     </a>
     <a class="right-next"
-       href="brukepluto.html"
+       href="pluto/pluto.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Bruke Pluto Notebooks</p>
+        <p class="prev-next-title">Introduksjon til Pluto Notebooks i Julia</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -507,10 +497,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-er-pluto">Hva er Pluto?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvorfor-pluto-i-dette-faget">Hvorfor Pluto i dette faget?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sjekk-om-du-har-pluto-installert">Sjekk om du har Pluto installert</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#starte-pluto-fra-vscode">Starte Pluto fra VSCode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppdatering-av-plots-pakken">1. Oppdatering av Plots pakken</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slette-plots-pakken-og-installere-fra-github">2. Slette Plots pakken og installere fra Github</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bruke-plotly-backend-i-plots">3. Bruke Plotly backend i Plots</a></li>
 </ul>
   </nav></div>
 
@@ -558,8 +547,8 @@ By Amir Arfan
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>

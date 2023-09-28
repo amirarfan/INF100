@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Grunnleggende Julia &#8212; INF100 Pensum</title>
+    <title>Forelesning om Julia: Funksjoner, ‘.’ Operatoren og Nyttige Ting &#8212; INF100 Pensum</title>
   
   
   
@@ -61,11 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '1_basic_julia/basicjulia';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '1_basic_julia/funksjoner_og_vektoroperasjoner';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Indeksering, håndtering av lister, og plotting i Julia" href="indeksering_og_plotting.html" />
-    <link rel="prev" title="Bruke Pluto Notebooks" href="../0_installasjon_av_programvare/pluto/brukepluto.html" />
+    <link rel="next" title="Forelesning 28.09.2023: Derivasjon og Rekker i Julia" href="../2_matematiske_problemer/numerisk_derivasjon_og_rekker.html" />
+    <link rel="prev" title="Forelesning 21.09.2023" href="summering_og_2grads_forsettelse.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -168,11 +168,11 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduksjon til Julia</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Grunnleggende Julia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basicjulia.html">Grunnleggende Julia</a></li>
 <li class="toctree-l1"><a class="reference internal" href="indeksering_og_plotting.html">Indeksering, håndtering av lister, og plotting i Julia</a></li>
 <li class="toctree-l1"><a class="reference internal" href="summering_og_2grads.html">Summering, lister av tall, og løsning av 2. grads likninger (Forelesningen 14 sept 2023)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="summering_og_2grads_forsettelse.html">Forelesning 21.09.2023</a></li>
-<li class="toctree-l1"><a class="reference internal" href="funksjoner_og_vektoroperasjoner.html">Forelesning om Julia: Funksjoner, ‘.’ Operatoren og Nyttige Ting</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Forelesning om Julia: Funksjoner, ‘.’ Operatoren og Nyttige Ting</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Matematiske Problemer</span></p>
 <ul class="nav bd-sidenav">
@@ -255,7 +255,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/amirarfan/INF100/issues/new?title=Issue%20on%20page%20%2F1_basic_julia/basicjulia.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/amirarfan/INF100/issues/new?title=Issue%20on%20page%20%2F1_basic_julia/funksjoner_og_vektoroperasjoner.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -285,7 +285,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/1_basic_julia/basicjulia.ipynb" target="_blank"
+      <li><a href="../_sources/1_basic_julia/funksjoner_og_vektoroperasjoner.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -367,7 +367,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Grunnleggende Julia</h1>
+    <h1>Forelesning om Julia: Funksjoner, ‘.’ Operatoren og Nyttige Ting</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -377,23 +377,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datatyper">Datatyper</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heltall-int">Heltall (<code class="docutils literal notranslate"><span class="pre">Int</span></code>)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flyttall-float64">Flyttall (<code class="docutils literal notranslate"><span class="pre">Float64</span></code>)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strenger-string">Strenger (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#del-1-funksjoner-i-julia">Del 1: Funksjoner i Julia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#del-2-operatoren-i-julia">Del 2: ‘.’ Operatoren i Julia</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nar-og-hvorfor-bruke">Når og Hvorfor Bruke ‘.’</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#utskrift">Utskrift</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolering">Interpolering</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#betingelser-if">Betingelser (<code class="docutils literal notranslate"><span class="pre">if</span></code>)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lokker">Løkker</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-lokke"><code class="docutils literal notranslate"><span class="pre">while</span></code>-løkke</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-lokke"><code class="docutils literal notranslate"><span class="pre">for</span></code>-løkke</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppsummering">Oppsummering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#del-3-nyttige-ting">Del 3:  Nyttige ting</a></li>
 </ul>
             </nav>
         </div>
@@ -405,161 +394,244 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="grunnleggende-julia">
-<h1>Grunnleggende Julia<a class="headerlink" href="#grunnleggende-julia" title="Permalink to this heading">#</a></h1>
-<p>Velkommen til en introduksjon til programmeringsspråket Julia! Denne notatboken vil gi deg en grunnleggende forståelse av noen av de viktigste konseptene i programmering ved hjelp av Julia.</p>
-<section id="datatyper">
-<h2>Datatyper<a class="headerlink" href="#datatyper" title="Permalink to this heading">#</a></h2>
-<p>I programmering bruker vi forskjellige datatyper for å representere ulike typer informasjon. Julia har flere innebygde datatyper. La oss utforske noen av dem.</p>
-<section id="heltall-int">
-<h3>Heltall (<code class="docutils literal notranslate"><span class="pre">Int</span></code>)<a class="headerlink" href="#heltall-int" title="Permalink to this heading">#</a></h3>
-<p>Heltall er tall uten desimaler. I Julia kan du opprette et heltall ved ganske enkelt å skrive tallet uten noen desimalpunkt:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="forelesning-om-julia-funksjoner-operatoren-og-nyttige-ting">
+<h1>Forelesning om Julia: Funksjoner, ‘.’ Operatoren og Nyttige Ting<a class="headerlink" href="#forelesning-om-julia-funksjoner-operatoren-og-nyttige-ting" title="Permalink to this heading">#</a></h1>
+<section id="del-1-funksjoner-i-julia">
+<h2>Del 1: Funksjoner i Julia<a class="headerlink" href="#del-1-funksjoner-i-julia" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">heltall</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span>
-<span class="n">println</span><span class="p">(</span><span class="n">heltall</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="flyttall-float64">
-<h3>Flyttall (<code class="docutils literal notranslate"><span class="pre">Float64</span></code>)<a class="headerlink" href="#flyttall-float64" title="Permalink to this heading">#</a></h3>
-<p>Flyttall er tall med desimaler. De gir mer presisjon enn heltall, spesielt når du jobber med beregninger som involverer fraksjoner:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">flyttall</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14</span>
-<span class="n">println</span><span class="p">(</span><span class="n">flyttall</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.14
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="strenger-string">
-<h3>Strenger (<code class="docutils literal notranslate"><span class="pre">String</span></code>)<a class="headerlink" href="#strenger-string" title="Permalink to this heading">#</a></h3>
-<p>Strenger brukes for å representere tekst. I Julia oppretter du en streng ved å omslutte teksten med doble anførselstegn:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">tekst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hei, verden!&quot;</span>
-<span class="n">println</span><span class="p">(</span><span class="n">tekst</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hei, verden!
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="utskrift">
-<h2>Utskrift<a class="headerlink" href="#utskrift" title="Permalink to this heading">#</a></h2>
-<p>Å kunne vise verdier og meldinger er viktig når du programmerer. I Julia bruker vi <code class="docutils literal notranslate"><span class="pre">println</span></code> funksjonen for dette. Du har allerede sett noen eksempler på dette ovenfor!</p>
-<section id="interpolering">
-<h3>Interpolering<a class="headerlink" href="#interpolering" title="Permalink to this heading">#</a></h3>
-<p>Noen ganger ønsker du å inkludere verdien av en variabel inne i en streng. Dette kalles strenginterpolering. I Julia kan du gjøre dette ved å bruke <code class="docutils literal notranslate"><span class="pre">$</span></code> før variabelnavnet inne i en streng:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">navn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Ola&quot;</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;Hei, </span><span class="si">$navn</span><span class="s"> ! Hvordan har du det?&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hei, Ola ! Hvordan har du det?
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="betingelser-if">
-<h2>Betingelser (<code class="docutils literal notranslate"><span class="pre">if</span></code>)<a class="headerlink" href="#betingelser-if" title="Permalink to this heading">#</a></h2>
-<p>Betingelser lar oss ta beslutninger i koden vår. Hvis en betingelse er sann, kan vi utføre en handling, ellers kan vi utføre en annen handling. Her er et eksempel:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">alder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">18</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Vanlig funksjonsdefinisjon</span>
+<span class="k">function</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span>
+<span class="k">end</span>
 
-<span class="k">if</span><span class="w"> </span><span class="n">alder</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">18</span>
-<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Du er gammel nok til å stemme!&quot;</span><span class="p">)</span>
-<span class="k">else</span>
-<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Du er ikke gammel nok til å stemme ennå.&quot;</span><span class="p">)</span>
-<span class="k">end</span>
+<span class="c"># Bruk av funksjonen</span>
+<span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Du er gammel nok til å stemme!
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="lokker">
-<h2>Løkker<a class="headerlink" href="#lokker" title="Permalink to this heading">#</a></h2>
-<p>Løkker lar oss gjenta en handling flere ganger. Dette er spesielt nyttig når vi ønsker å utføre en oppgave mange ganger uten å skrive den samme koden om og om igjen.</p>
-<section id="while-lokke">
-<h3><code class="docutils literal notranslate"><span class="pre">while</span></code>-løkke<a class="headerlink" href="#while-lokke" title="Permalink to this heading">#</a></h3>
-<p>En <code class="docutils literal notranslate"><span class="pre">while</span></code>-løkke utfører en handling så lenge en betingelse er sann. Her er et eksempel der vi teller opp fra 1 til 5:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">teller</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Anonyme funksjoner</span>
+<span class="n">add_anon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span>
 
-<span class="k">while</span><span class="w"> </span><span class="n">teller</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">5</span>
-<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">teller</span><span class="p">)</span>
-<span class="w">    </span><span class="n">teller</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
-<span class="k">end</span>
+<span class="c"># Bruk av anonym funksjon</span>
+<span class="n">add_anon</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-2
-3
-4
-5
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="for-lokke">
-<h3><code class="docutils literal notranslate"><span class="pre">for</span></code>-løkke<a class="headerlink" href="#for-lokke" title="Permalink to this heading">#</a></h3>
-<p>En <code class="docutils literal notranslate"><span class="pre">for</span></code>-løkke lar oss gjenta en handling et bestemt antall ganger. Her er et eksempel der vi teller opp fra 1 til 5 ved hjelp av en <code class="docutils literal notranslate"><span class="pre">for</span></code>-løkke:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">5</span>
-<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="k">end</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">add_oneliner</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="n">y</span>
+
+<span class="n">add_oneliner</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-2
-3
-4
-5
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="del-2-operatoren-i-julia">
+<h2>Del 2: ‘.’ Operatoren i Julia<a class="headerlink" href="#del-2-operatoren-i-julia" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Definere en vektor</span>
+<span class="n">vec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">]</span>
+
+<span class="c"># Bruke .+ for elementvis addering</span>
+<span class="n">vec</span><span class="w"> </span><span class="o">.+</span><span class="w"> </span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4-element Vector{Int64}:
+ 2
+ 3
+ 4
+ 5
+</pre></div>
+</div>
+</div>
+</div>
+<section id="nar-og-hvorfor-bruke">
+<h3>Når og Hvorfor Bruke ‘.’<a class="headerlink" href="#nar-og-hvorfor-bruke" title="Permalink to this heading">#</a></h3>
+<p>Bruk ‘.’ for elementvis operasjoner på vektorer og matriser. Det er optimalisert for ytelse og lar deg utføre operasjoner uten å bruke løkker.</p>
+<p>Unngå ‘.’ hvis du ikke har behov for elementvis operasjoner, da det kan gjøre koden mindre lesbar.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">vec2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4-element Vector{Int64}:
+ 5
+ 6
+ 7
+ 8
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span><span class="w"> </span><span class="o">.+</span><span class="w"> </span><span class="n">vec2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4-element Vector{Int64}:
+  6
+  8
+ 10
+ 12
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">vec2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4-element Vector{Int64}:
+  6
+  8
+ 10
+ 12
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Spesielt nyttig når du har nested vektorer</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">nested_vec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2-element Vector{Vector{Int64}}:
+ [1, 2, 3, 4]
+ [4, 5, 6, 7]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">sum</span><span class="p">(</span><span class="n">nested_vec</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4-element Vector{Int64}:
+  5
+  7
+  9
+ 11
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">sum</span><span class="o">.</span><span class="p">(</span><span class="n">nested_vec</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2-element Vector{Int64}:
+ 10
+ 22
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="oppsummering">
-<h2>Oppsummering<a class="headerlink" href="#oppsummering" title="Permalink to this heading">#</a></h2>
-<p>Gratulerer! Du har nå en grunnleggende forståelse av noen av de viktigste konseptene i programmering med Julia. Det er selvfølgelig mye mer å lære, men dette gir deg en god start.</p>
+<section id="del-3-nyttige-ting">
+<h2>Del 3:  Nyttige ting<a class="headerlink" href="#del-3-nyttige-ting" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Multiple return verdier</span>
+<span class="k">function</span><span class="w"> </span><span class="n">compute</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span>
+<span class="w">    </span><span class="n">diff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="p">,</span><span class="w"> </span><span class="n">diff</span>
+<span class="k">end</span>
+
+<span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">compute</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(8, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># List Comprehension</span>
+<span class="n">squared</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5-element Vector{Int64}:
+  1
+  4
+  9
+ 16
+ 25
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Bruke en funksjon som heter dividetwovectors definert i en annen fil &quot;myfunction.jl&quot;</span>
+<span class="n">include</span><span class="p">(</span><span class="s">&quot;myfunction.jl&quot;</span><span class="p">)</span>
+
+<span class="c"># Følgende funksjon er definert i en myfunction.jl</span>
+<span class="s">&quot;&quot;&quot;</span>
+<span class="s">function dividetwovectors(a,b)</span>
+<span class="s">    return a ./ b</span>
+<span class="s">end</span>
+<span class="s">&quot;&quot;&quot;</span>
+
+<span class="n">dividetwovectors</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3-element Vector{Float64}:
+ 0.25
+ 0.4
+ 0.5
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -595,20 +667,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../0_installasjon_av_programvare/pluto/brukepluto.html"
+       href="summering_og_2grads_forsettelse.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Bruke Pluto Notebooks</p>
+        <p class="prev-next-title">Forelesning 21.09.2023</p>
       </div>
     </a>
     <a class="right-next"
-       href="indeksering_og_plotting.html"
+       href="../2_matematiske_problemer/numerisk_derivasjon_og_rekker.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Indeksering, håndtering av lister, og plotting i Julia</p>
+        <p class="prev-next-title">Forelesning 28.09.2023: Derivasjon og Rekker i Julia</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -630,23 +702,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datatyper">Datatyper</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heltall-int">Heltall (<code class="docutils literal notranslate"><span class="pre">Int</span></code>)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flyttall-float64">Flyttall (<code class="docutils literal notranslate"><span class="pre">Float64</span></code>)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strenger-string">Strenger (<code class="docutils literal notranslate"><span class="pre">String</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#del-1-funksjoner-i-julia">Del 1: Funksjoner i Julia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#del-2-operatoren-i-julia">Del 2: ‘.’ Operatoren i Julia</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nar-og-hvorfor-bruke">Når og Hvorfor Bruke ‘.’</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#utskrift">Utskrift</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolering">Interpolering</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#betingelser-if">Betingelser (<code class="docutils literal notranslate"><span class="pre">if</span></code>)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lokker">Løkker</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-lokke"><code class="docutils literal notranslate"><span class="pre">while</span></code>-løkke</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-lokke"><code class="docutils literal notranslate"><span class="pre">for</span></code>-løkke</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppsummering">Oppsummering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#del-3-nyttige-ting">Del 3:  Nyttige ting</a></li>
 </ul>
   </nav></div>
 
