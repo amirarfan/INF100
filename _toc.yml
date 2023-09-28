@@ -7,7 +7,8 @@ parts:
   - caption: Installasjon av programvare
     chapters:
     - file: 0_installasjon_av_programvare/Julia
-    - file: 0_installasjon_av_programvare/vscode  
+    - file: 0_installasjon_av_programvare/vscode 
+    - file: 0_installasjon_av_programvare/feilsokeplots 
     - file: 0_installasjon_av_programvare/pluto/pluto
       sections:
       - file: 0_installasjon_av_programvare/pluto/brukepluto
@@ -17,6 +18,10 @@ parts:
     - file: 1_basic_julia/indeksering_og_plotting.ipynb
     - file: 1_basic_julia/summering_og_2grads.ipynb
     - file: 1_basic_julia/summering_og_2grads_forsettelse.ipynb
+    - file: 1_basic_julia/funksjoner_og_vektoroperasjoner.ipynb
+  - caption: Matematiske Problemer
+    chapters:
+    - file: 2_matematiske_problemer/numerisk_derivasjon_og_rekker.ipynb
   - caption: Ukentlige Oppgaver
     chapters:
     - file: x_oppgaver/Oppgaver_Uke38.ipynb

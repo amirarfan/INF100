@@ -18,6 +18,9 @@ Denne boken vil inneholde pensummateriale, veiledninger, og mer.
 	* Se Julia installasjon siden for en veiledning
 * Visual Studio Code med Julia extensions
 
+### Nyttige lenker
+
+* [Julia Cheatsheet](https://cheatsheet.juliadocs.org/)
 #### Nyttige videoer
 
 * [YouTube: VS Code in 100 seconds](https://youtu.be/KMxo3T_MTvY) (2m:34s)
