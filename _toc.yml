@@ -16,6 +16,8 @@ parts:
     - file: 1_basic_julia/basicjulia.ipynb
     - file: 1_basic_julia/indeksering_og_plotting.ipynb
     - file: 1_basic_julia/summering_og_2grads.ipynb
+    - file: 1_basic_julia/summering_og_2grads_forsettelse.ipynb
   - caption: Ukentlige Oppgaver
     chapters:
     - file: x_oppgaver/Oppgaver_Uke38.ipynb
+    - file: x_oppgaver/Oppgaver_Uke39.ipynb
