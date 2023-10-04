@@ -22,6 +22,8 @@ parts:
   - caption: Matematiske Problemer
     chapters:
     - file: 2_matematiske_problemer/numerisk_derivasjon_og_rekker.ipynb
+  - caption: Praktiske Anvendelser
+    - file: 3_praktiske_anvendelser/datainnlasting_og_analyse.ipynb
   - caption: Ukentlige Oppgaver
     chapters: 
     - file: x_oppgaver/Oppgaver_Uke38.ipynb
