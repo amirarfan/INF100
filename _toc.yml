@@ -23,6 +23,7 @@ parts:
     chapters:
     - file: 2_matematiske_problemer/numerisk_derivasjon_og_rekker.ipynb
   - caption: Praktiske Anvendelser
+    chapters:
     - file: 3_praktiske_anvendelser/datainnlasting_og_analyse.ipynb
   - caption: Ukentlige Oppgaver
     chapters: 
