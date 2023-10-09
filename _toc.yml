@@ -34,5 +34,8 @@ parts:
     chapters:
     - file: x_oppgaver/oppgaver_uke38_losninger.ipynb
     - file: x_oppgaver/oppgaver_uke39_losninger.ipynb
+  - caption: Obligatoriske Oppgaver
+    chapters:
+    - file: x_oppgaver/Oppgaver_Oblig1.ipynb
    
       
