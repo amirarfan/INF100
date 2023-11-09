@@ -1,0 +1,1101 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Eksponentiell Vekst - Forelesning 09.11.2023 &#8212; INF100 Pensum</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '3_praktiske_anvendelser/eksponentiellvekst';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Oppgaver Uke 38" href="../x_oppgaver/Oppgaver_Uke38.html" />
+    <link rel="prev" title="Nullpunktsmetoder - Forelesning 26.10.2023" href="nullpunktsmetoder.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/julia-logo-color.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/julia-logo-color.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    INF100 - Prinsipper i informasjonsbehandling
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installasjon av programvare</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../0_installasjon_av_programvare/Julia.html">Installasjon av Julia på din personlige PC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../0_installasjon_av_programvare/vscode.html">Installasjon av Visual Studio Code og Julia Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../0_installasjon_av_programvare/feilsokeplots.html">Feilsøking av Plots pakken i Julia</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../0_installasjon_av_programvare/pluto/pluto.html">Introduksjon til Pluto Notebooks i Julia</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../0_installasjon_av_programvare/pluto/brukepluto.html">Bruke Pluto Notebooks</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduksjon til Julia</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../1_basic_julia/basicjulia.html">Grunnleggende Julia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_basic_julia/indeksering_og_plotting.html">Indeksering, håndtering av lister, og plotting i Julia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_basic_julia/summering_og_2grads.html">Summering, lister av tall, og løsning av 2. grads likninger (Forelesningen 14 sept 2023)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_basic_julia/summering_og_2grads_forsettelse.html">Forelesning 21.09.2023</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_basic_julia/funksjoner_og_vektoroperasjoner.html">Forelesning om Julia: Funksjoner, ‘.’ Operatoren og Nyttige Ting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Matematiske Problemer</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../2_matematiske_problemer/numerisk_derivasjon_og_rekker.html">Forelesning 28.09.2023: Derivasjon og Rekker i Julia</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Praktiske Anvendelser</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="datainnlasting_og_analyse.html">Forelesning 12.10.2023: Datainnlasting og analyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nullpunktsmetoder.html">Nullpunktsmetoder - Forelesning 26.10.2023</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Eksponentiell Vekst - Forelesning 09.11.2023</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Ukentlige Oppgaver</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../x_oppgaver/Oppgaver_Uke38.html">Oppgaver Uke 38</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../x_oppgaver/Oppgaver_Uke39.html">Oppgaver Uke 39</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../x_oppgaver/Oppgaver_Uke40.html">Oppgaver Uke 40 - Studieuke</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Løsninger til ukentlige oppgaver</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../x_oppgaver/oppgaver_uke38_losninger.html">Løsningsforslag Oppgaver Uke 38</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../x_oppgaver/oppgaver_uke39_losninger.html">Løsningsforslag Oppgaver Uke 39</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Obligatoriske Oppgaver</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../x_oppgaver/Oppgaver_Oblig1.html">Obligatorisk Oppgave 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../x_oppgaver/Oppgaver_Oblig2.html">Obligatorisk Oppgave 2</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/amirarfan/INF100" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/amirarfan/INF100/issues/new?title=Issue%20on%20page%20%2F3_praktiske_anvendelser/eksponentiellvekst.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/3_praktiske_anvendelser/eksponentiellvekst.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Eksponentiell Vekst - Forelesning 09.11.2023</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-er-eksponentiell-vekst">Hva er Eksponentiell Vekst?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksponentiell-vekst-i-to-former">Eksponentiell vekst i to former:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksponentialfunksjon-med-eulers-tall">Eksponentialfunksjon med Eulers Tall:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksponentialfunksjon-med-basis-1-p">Eksponentialfunksjon med Basis 1 + p:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forholdet-mellom-dem">Forholdet Mellom dem:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvorfor-er-eksponentiell-vekst-viktig">Hvorfor er Eksponentiell Vekst Viktig?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#populasjonsvekst-belfolkningsdynamiikk">Populasjonsvekst (Belfolkningsdynamiikk)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#julia-oppgave">Julia Oppgave</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hvordan-kan-vi-bestemme-okningen-i-folketall-for-hvert-av-de-tretten-5-ars-intervallene">Hvordan kan vi bestemme økningen i folketall  for hvert av de tretten 5-års intervallene?</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finne-den-prosentvise-okningen">Finne den prosentvise økningen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bestemme-den-gjennomsnittlige-prosentvise-okningen-per-ar-for-alle-disse-5-ars-intervallene">Bestemme den gjennomsnittlige prosentvise økningen per år for alle disse 5-års intervallene</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bestemme-vekstrate">Bestemme Vekstrate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#betydningen-av-likningen">Betydningen av likningen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funksjon-for-a-modellere-befolkningsveksten">Funksjon for å modellere befolkningsveksten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="eksponentiell-vekst-forelesning-09-11-2023">
+<h1>Eksponentiell Vekst - Forelesning 09.11.2023<a class="headerlink" href="#eksponentiell-vekst-forelesning-09-11-2023" title="Permalink to this heading">#</a></h1>
+<p><strong>Eksponentiell vekst</strong>:</p>
+<p>Dette konseptet hjelper oss ikke bare å forstå hvordan populasjoner vokser, men også hvordan rentesrente akkumuleres, hvordan epidemier sprer seg, og mye mer.</p>
+<section id="hva-er-eksponentiell-vekst">
+<h2>Hva er Eksponentiell Vekst?<a class="headerlink" href="#hva-er-eksponentiell-vekst" title="Permalink to this heading">#</a></h2>
+<p>Forståelse av eksponentiell vekst forutsetter at man har fulgt med i kurset ECN102 hvor eksponentielle funksjoner har blitt gjennomgått.</p>
+<p>La oss starte med grunnleggende: I eksponentiell vekst øker mengden proporsjonalt med sin nåværende verdi. Dette betyr at jo større befolkningen er, desto raskere vokser den. I matematiske termer kan vi uttrykke dette som:</p>
+<div class="math notranslate nohighlight">
+\[
+B(t) = B_0 \cdot e^{rt}
+\]</div>
+<p>hvor</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(B(t)\)</span> er mengden på et gitt tidspunkt <span class="math notranslate nohighlight">\(t\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(B_0\)</span> er mengden ved <span class="math notranslate nohighlight">\(t=0\)</span> (initial befolkningen)</p></li>
+<li><p><span class="math notranslate nohighlight">\(r\)</span> er vekstraten</p></li>
+<li><p><span class="math notranslate nohighlight">\(e\)</span> er Eulers tall, ca. 2.71828 (2.7 Ibsen Ibsen)</p></li>
+</ul>
+<blockquote>
+<div><p>Lineær vekst derimot er når mengden øker med en konstant mengde per tidsenhet. For eksempel, hvis du har 1000 mennesker som flytter til Oslo hvert år, vil befolkningen øke med 1000 mennesker hvert år. Dette er lineær vekst.
+Dette er en viktig forskjell mellom lineær og eksponentiell vekst: I eksponentiell vekst øker mengden med en prosentandel av sin nåværende verdi, mens i lineær vekst øker mengden med en konstant mengde.</p>
+</div></blockquote>
+</section>
+<section id="eksponentiell-vekst-i-to-former">
+<h2>Eksponentiell vekst i to former:<a class="headerlink" href="#eksponentiell-vekst-i-to-former" title="Permalink to this heading">#</a></h2>
+<section id="eksponentialfunksjon-med-eulers-tall">
+<h3>Eksponentialfunksjon med Eulers Tall:<a class="headerlink" href="#eksponentialfunksjon-med-eulers-tall" title="Permalink to this heading">#</a></h3>
+<p>En klassisk modell for eksponentiell vekst er gitt ved formelen:</p>
+<div class="math notranslate nohighlight">
+\[B(t) = B_0 \cdot e^{rt}\]</div>
+<p>der <span class="math notranslate nohighlight">\(e\)</span> er Eulers tall (cirka 2.71828), <span class="math notranslate nohighlight">\(r\)</span> er vekstraten, <span class="math notranslate nohighlight">\(t\)</span> er tiden, og <span class="math notranslate nohighlight">\(B_0\)</span> er initialverdien.</p>
+</section>
+<section id="eksponentialfunksjon-med-basis-1-p">
+<h3>Eksponentialfunksjon med Basis 1 + p:<a class="headerlink" href="#eksponentialfunksjon-med-basis-1-p" title="Permalink to this heading">#</a></h3>
+<p>I mange praktiske anvendelser, spesielt i finans og demografi, er det vanlig å uttrykke eksponentiell vekst som:</p>
+<div class="math notranslate nohighlight">
+\[B(t) = B_0 \cdot (1 + p)^t\]</div>
+<p>der <span class="math notranslate nohighlight">\(p\)</span> representerer vekstraten som en desimal (for eksempel, 5% vekst er uttrykt som 0.05), <span class="math notranslate nohighlight">\(t\)</span> er antall tidsperioder, og <span class="math notranslate nohighlight">\(B_0\)</span> er initialverdien.</p>
+<p>Begge formene er eksponentielle fordi de beskriver situasjoner hvor noe vokser i et tempo som er proporsjonalt med dets nåværende størrelse.</p>
+</section>
+<section id="forholdet-mellom-dem">
+<h3>Forholdet Mellom dem:<a class="headerlink" href="#forholdet-mellom-dem" title="Permalink to this heading">#</a></h3>
+<p>For å forstå sammenhengen mellom de to formene, kan vi se på Eulers formel for eksponentiell vekst:</p>
+<div class="math notranslate nohighlight">
+\[e^{rt} = (e^r)^t\]</div>
+<p>Hvis vi sammenligner dette med den andre formelen, kan vi se at <span class="math notranslate nohighlight">\(e^r\)</span> tilsvarer <span class="math notranslate nohighlight">\(1 + p\)</span>. Dette betyr at for en gitt vekstrate <span class="math notranslate nohighlight">\(r\)</span>, kan vi finne et tilsvarende <span class="math notranslate nohighlight">\(p\)</span> slik at:</p>
+<div class="math notranslate nohighlight">
+\[e^r = 1 + p\]</div>
+<p>eller omvendt, gitt en prosentraten <span class="math notranslate nohighlight">\(p\)</span>, kan vi finne en kontinuerlig vekstrate <span class="math notranslate nohighlight">\(r\)</span> som:</p>
+<div class="math notranslate nohighlight">
+\[r = \ln(1 + p)\]</div>
+<p>Så når vi arbeider med dagens forelesning og anvender dette til jordens befolkning, er vi faktisk i ferd med å bruke en eksponentiell vekstmodell som er lettere å forstå og beregne for mange mennesker, siden den bruker en prosentraten vi kan relatere til direkte.</p>
+<p>I begge tilfeller handler eksponentiell vekst om å ta noe til en potens, enten det er Eulers tall eller (1 + p). Dette potensforholdet er hva som definerer veksten som eksponentiell.</p>
+</section>
+</section>
+<section id="id1">
+<h2><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="hvorfor-er-eksponentiell-vekst-viktig">
+<h2>Hvorfor er Eksponentiell Vekst Viktig?<a class="headerlink" href="#hvorfor-er-eksponentiell-vekst-viktig" title="Permalink to this heading">#</a></h2>
+<p>Eksponentiell vekst er svært relevant i økonomi for en rekke fenomener. Her er noen eksempler på hvordan eksponentiell vekst opptrer innen økonomisk teori og praksis:</p>
+<ol class="arabic simple">
+<li><p><strong>Renters rente</strong>: Dette er kanskje det mest direkte eksemplet på eksponentiell vekst i økonomi. Når man investerer penger til en fast rente, vil man ikke bare tjene penger på det opprinnelige beløpet (hovedstolen), men også på rentene som allerede er tjent. Dette fører til at verdien av investeringen vokser eksponentielt over tid, et fenomen som Albert Einstein angivelig kalte “verdens åttende underverk”.</p></li>
+<li><p><strong>Økonomisk vekst</strong>: Mange modeller av økonomisk vekst, spesielt de på lang sikt, bruker eksponentiell vekst til å beskrive hvordan produksjonsutgangen i en økonomi kan vokse. For eksempel, hvis en økonomi vokser med en konstant prosentsats per år på grunn av faktorer som teknologisk innovasjon og kapitalakkumulering, vil den vise eksponentiell vekst.</p></li>
+<li><p><strong>Populasjonsvekst</strong>: Eksponentiell vekstmodeller brukes også til å beskrive befolkningsvekst i en økonomisk kontekst, hvor befolkningens størrelse har direkte innflytelse på arbeidsstyrken, markedene, og etterspørselen i en økonomi.</p></li>
+<li><p><strong>Inflasjon</strong>: Over tid kan prisnivået i en økonomi vokse eksponentielt, spesielt i perioder med høy inflasjon. Dette har betydelige konsekvenser for kjøpekraften til valutaen.</p></li>
+<li><p><strong>Spredning av teknologi</strong>: Adopsjon av ny teknologi kan ofte følge en eksponentiell kurve hvor bruk av teknologi raskt vokser etter at en kritisk masse er nådd.</p></li>
+<li><p><strong>Finansielle markeder</strong>: Aksjekurser og markedsverdier kan også oppleve eksponentiell vekst, spesielt i bull-markeder, når investorenes tillit og kapitalinnsprøytinger driver verdiene oppover.</p></li>
+<li><p><strong>Gjeldsvekst</strong>: Lån og nasjonal gjeld kan vokse eksponentielt, noe som kan lede til ustabilitet eller kriser hvis ikke gjeldsveksten kontrolleres forsvarlig.</p></li>
+</ol>
+<p>Forståelse av eksponentiell vekst er derfor avgjørende for økonomer, investorer og politikkutformere for å kunne lage prognoser, vurdere bærekraften til økonomiske trender og utforme økonomisk politikk.</p>
+</section>
+<section id="populasjonsvekst-belfolkningsdynamiikk">
+<h2>Populasjonsvekst (Belfolkningsdynamiikk)<a class="headerlink" href="#populasjonsvekst-belfolkningsdynamiikk" title="Permalink to this heading">#</a></h2>
+<p>La oss ta et eksempel nært knyttet til virkeligheten: befolkningsvekst. Historiske data viser at jordens befolkning har vokst eksponentielt, spesielt etter industrielle revolusjon. Men, kan denne veksten fortsette uendelig? Det tar oss til diskusjonen om ressurser, bærekraft, og andre begrensende faktorer som kan føre til at en eksponentiell vekstkurve til slutt flater ut, noe som fører til en logistisk vekstmodell. Men for i dag, vil vi fokusere på eksponentiell vekst.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">ShortCodes</span>
+<span class="n">YouTube</span><span class="p">(</span><span class="s">&quot;VcSX4ytEfcE&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div id=" 3894aaa2-7f37-11ee-23d5-d7bea7c5ec84 "></div>
+<script>
+// 2. This code loads the IFrame Player API code asynchronously.
+  var tag = document.createElement('script');
+
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // 3. This function creates an <iframe> (and YouTube player)
+  //    after the API code downloads.
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player(' 3894aaa2-7f37-11ee-23d5-d7bea7c5ec84 ', {
+          height: '390',
+          width: '640',
+		  rel: '0',
+		  showinfo: '0',
+iv_load_policy: '3',
+showinfo: '0',
+          videoId: 'VcSX4ytEfcE',
+  //modestbranding: 1,
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+      });
+      
+    }
+
+    // 4. The API will call this function when the video player is ready.
+    function onPlayerReady(event) {
+event.target.mute();
+event.target.seekTo(0);
+        event.target.playVideo();
+      }
+
+      // 5. The API calls this function when the player's state changes.
+      //    The function indicates that when playing a video (state=1),
+      //    the player should play for six seconds and then stop.
+      var done = false;
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+          setTimeout(stopVideo, 0);
+          done = true;
+        }
+      }
+      function stopVideo() {
+        player.pauseVideo();
+      }
+      
+      // Check if YT is loaded before trying to start player
+      function pollYT () {
+        if (typeof(YT) == 'undefined') {
+            setTimeout(pollYT, 300); // try again in 300 milliseconds
+        } else {
+            onYouTubeIframeAPIReady();
+        }
+      }
+
+      pollYT();
+    </script>
+</div></div>
+</div>
+<section id="julia-oppgave">
+<h3>Julia Oppgave<a class="headerlink" href="#julia-oppgave" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">Y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1950</span><span class="p">,</span><span class="w"> </span><span class="mi">1955</span><span class="p">,</span><span class="w"> </span><span class="mi">1960</span><span class="p">,</span><span class="w"> </span><span class="mi">1965</span><span class="p">,</span><span class="w"> </span><span class="mi">1970</span><span class="p">,</span><span class="w"> </span><span class="mi">1975</span><span class="p">,</span><span class="w"> </span><span class="mi">1980</span><span class="p">,</span><span class="w"> </span><span class="mi">1985</span><span class="p">,</span><span class="w"> </span><span class="mi">1990</span><span class="p">,</span><span class="w"> </span><span class="mi">1995</span><span class="p">,</span><span class="w"> </span><span class="mi">2000</span><span class="p">,</span><span class="w"> </span><span class="mi">2005</span><span class="p">,</span><span class="w"> </span><span class="mi">2010</span><span class="p">,</span><span class="w"> </span><span class="mi">2015</span><span class="p">,</span><span class="w"> </span><span class="mi">2020</span><span class="p">]</span><span class="w">  </span><span class="c"># Årstall</span>
+<span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">2518269</span><span class="p">,</span><span class="w"> </span><span class="mi">2755823</span><span class="p">,</span><span class="w"> </span><span class="mi">2981659</span><span class="p">,</span><span class="w"> </span><span class="mi">3334874</span><span class="p">,</span><span class="w"> </span><span class="mi">3692492</span><span class="p">,</span><span class="w"> </span><span class="mi">4068109</span><span class="p">,</span><span class="w"> </span><span class="mi">4434682</span><span class="p">,</span><span class="w"> </span><span class="mi">4830979</span><span class="p">,</span><span class="w"> </span><span class="mi">5263593</span><span class="p">,</span><span class="w"> </span><span class="mi">5674380</span><span class="p">,</span><span class="w"> </span><span class="mi">6070581</span><span class="p">,</span><span class="w"> </span><span class="mi">6453628</span><span class="p">,</span><span class="w"> </span><span class="mi">6909000</span><span class="p">,</span><span class="w"> </span><span class="mi">7350000</span><span class="p">,</span><span class="w"> </span><span class="mi">7790000</span><span class="p">];</span><span class="w"> </span><span class="c"># Folketall målt i enheter på tusen</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="hvordan-kan-vi-bestemme-okningen-i-folketall-for-hvert-av-de-tretten-5-ars-intervallene">
+<h4>Hvordan kan vi bestemme økningen i folketall  for hvert av de tretten 5-års intervallene?<a class="headerlink" href="#hvordan-kan-vi-bestemme-okningen-i-folketall-for-hvert-av-de-tretten-5-ars-intervallene" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Bestemme økningen i folketall for hvert av de tretten 5-års intervallene</span>
+
+<span class="c"># Mulighet 1: Bruke en for løkke</span>
+<span class="n">differanser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="n">length</span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+<span class="w">    </span><span class="n">append!</span><span class="p">(</span><span class="n">differanser</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="k">end</span>
+
+<span class="c"># Mulighet 2: diff funksjonen</span>
+<span class="n">differanser_med_diff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">diff</span><span class="p">(</span><span class="n">B</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">differanser</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14-element Vector{Any}:
+ 237554
+ 225836
+ 353215
+ 357618
+ 375617
+ 366573
+ 396297
+ 432614
+ 410787
+ 396201
+ 383047
+ 455372
+ 441000
+ 440000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">differanser_med_diff</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14-element Vector{Int64}:
+ 237554
+ 225836
+ 353215
+ 357618
+ 375617
+ 366573
+ 396297
+ 432614
+ 410787
+ 396201
+ 383047
+ 455372
+ 441000
+ 440000
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="finne-den-prosentvise-okningen">
+<h3>Finne den prosentvise økningen<a class="headerlink" href="#finne-den-prosentvise-okningen" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Bestemme den prosentvise økingen i folketall for hvert 5-års intervall i forhold til folketallet i starten på intervallet</span>
+
+<span class="c"># Mulighet 1: Bruke en for løkke</span>
+<span class="n">prosentvis_økning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="n">length</span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+<span class="w">    </span><span class="n">append!</span><span class="p">(</span><span class="n">prosentvis_økning</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="c"># Mulighet 2: diff funksjonen</span>
+<span class="n">prosentvis_økning_med_diff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">diff</span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="o">./</span><span class="n">B</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">prosentvis_økning</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14-element Vector{Any}:
+  9.433225759440313
+  8.194865925714387
+ 11.846257402338765
+ 10.723583559678715
+ 10.172452641738966
+  9.010894250866926
+  8.936311555146457
+  8.954996492429382
+  7.804307817872696
+  6.982278240089666
+  6.30989027244674
+  7.0560621095607
+  6.382978723404255
+  5.986394557823129
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">prosentvis_økning_med_diff</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14-element Vector{Float64}:
+  9.433225759440313
+  8.194865925714387
+ 11.846257402338765
+ 10.723583559678715
+ 10.172452641738966
+  9.010894250866926
+  8.936311555146457
+  8.954996492429382
+  7.804307817872696
+  6.982278240089666
+  6.30989027244674
+  7.0560621095607
+  6.382978723404255
+  5.986394557823129
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="bestemme-den-gjennomsnittlige-prosentvise-okningen-per-ar-for-alle-disse-5-ars-intervallene">
+<h3>Bestemme den gjennomsnittlige prosentvise økningen per år for alle disse 5-års intervallene<a class="headerlink" href="#bestemme-den-gjennomsnittlige-prosentvise-okningen-per-ar-for-alle-disse-5-ars-intervallene" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Bestemme den gjennomsnittlige prosentvise økningen i folketall for hvert 5-års intervall</span>
+
+
+<span class="n">gjennomsnittlig_årlig_økning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prosentvis_økning</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">5</span>
+
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;Gjennomsnittlig årlig prosentvis økning:&quot;</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">gjennomsnittlig_årlig_økning</span><span class="p">)</span>
+
+
+<span class="n">gjennomsnitt_over_alle_år</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sum</span><span class="p">(</span><span class="n">gjennomsnittlig_årlig_økning</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">length</span><span class="p">(</span><span class="n">gjennomsnittlig_årlig_økning</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;Gjennomsnittlig årlig prosentvis økning over alle år:&quot;</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">gjennomsnitt_over_alle_år</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gjennomsnittlig årlig prosentvis økning:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.8866451518880627, 1.6389731851428775, 2.369251480467753, 2.144716711935743, 2.034490528347793, 1.802178850173385, 1.7872623110292913, 1.7909992984858765, 1.5608615635745393, 1.3964556480179333, 1.261978054489348, 1.41121242191214, 1.2765957446808511, 1.1972789115646258]
+Gjennomsnittlig årlig prosentvis økning over alle år:
+1.6827785615507302
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="bestemme-vekstrate">
+<h3>Bestemme Vekstrate<a class="headerlink" href="#bestemme-vekstrate" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Bestemme vekstraten $p$ som opfyller likningen B[1] * (1+p)^(2020-1950) = B[15]</span>
+<span class="c"># Med newtons metode kan vi finne en tilnærming til $p$</span>
+
+<span class="c"># Definer funksjonen som skal ha nullpunkt</span>
+<span class="n">f</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">p</span><span class="p">)</span><span class="o">^</span><span class="p">(</span><span class="mi">2020</span><span class="o">-</span><span class="mi">1950</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span>
+
+<span class="c"># Definer den deriverte av funksjonen</span>
+<span class="n">df</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">2020</span><span class="o">-</span><span class="mi">1950</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">p</span><span class="p">)</span><span class="o">^</span><span class="p">(</span><span class="mi">2020</span><span class="o">-</span><span class="mi">1950</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c"># Definer startverdien</span>
+<span class="n">p0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.01</span>
+
+<span class="c"># Definer toleransen</span>
+<span class="n">tol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1e-6</span>
+
+<span class="c"># Definer maks antall iterasjoner</span>
+<span class="n">max_iter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
+
+<span class="c"># Definerer newtonrhapson funksjonen</span>
+<span class="k">function</span><span class="w"> </span><span class="n">newtonraphson</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="n">p0</span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="p">,</span><span class="w"> </span><span class="n">max_iter</span><span class="p">)</span>
+<span class="w">    </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p0</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="n">max_iter</span>
+<span class="w">        </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">/</span><span class="n">df</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">abs</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">p</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tol</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">p</span>
+<span class="w">        </span><span class="k">end</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span>
+<span class="k">end</span>
+
+<span class="c"># Kjører newtonrhapson funksjonen</span>
+<span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newtonraphson</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="n">p0</span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="p">,</span><span class="w"> </span><span class="n">max_iter</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.016263245708168905
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Kunne vi gjort det med bisection?</span>
+
+<span class="k">function</span><span class="w"> </span><span class="n">bisect</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="p">,</span><span class="w"> </span><span class="n">max_iter</span><span class="p">)</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="n">max_iter</span>
+<span class="w">        </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">abs</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">c</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tol</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">c</span>
+<span class="w">        </span><span class="k">end</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">            </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">            </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span>
+<span class="w">        </span><span class="k">end</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">c</span>
+<span class="k">end</span>
+
+<span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bisect</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="p">,</span><span class="w"> </span><span class="n">max_iter</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.01626324570816795
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">*</span><span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.626324570816795
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Kan også bruke en pakke som heter Roots (denne er ikke innenfor pensum, blir dere bedt om å skrive en nullpunkts metode på eksamen så er det ikke meningen at dere skal bruke roots.)</span>
+<span class="c"># Men det er greit å vite at det finnes pakker som gjør dette for oss.</span>
+
+<span class="k">using</span><span class="w"> </span><span class="n">Roots</span>
+<span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find_zero</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="n">p</span><span class="o">*</span><span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.626324570816895
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="betydningen-av-likningen">
+<h3>Betydningen av likningen<a class="headerlink" href="#betydningen-av-likningen" title="Permalink to this heading">#</a></h3>
+<p>Likningen vi stilte opp i deloppgaven</p>
+<p><span class="math notranslate nohighlight">\(B(1) \cdot (1+p)^{2020-1950} = B(15)\)</span></p>
+<p>representerer en matematisk modell for eksponensiell vekst, hvor <span class="math notranslate nohighlight">\(B(1)\)</span> er befolkningsstørrelsen i begynnelsen av perioden (i år 1950), <span class="math notranslate nohighlight">\(B(15)\)</span> er befolkningsstørrelsen ved slutten av perioden (i år 2020), og <span class="math notranslate nohighlight">\(p\)</span> er den årlige vekstraten.</p>
+<p>Eksponensiell vekst beskriver en situasjon hvor størrelsen på en befolkning (eller noe annet som vokser over tid) øker proporsjonalt med sin nåværende størrelse, noe som betyr at jo større befolkningen er, desto raskere vokser den. Dette resulterer i en J-formet kurve når befolkningen plottes over tid, som vi ser i den typiske kurven for befolkningsvekst.</p>
+<p>Likningen er en modell for denne typen vekst og antar at vekstraten <span class="math notranslate nohighlight">\(p\)</span> er konstant over tid. Når vi løser for  <span class="math notranslate nohighlight">\(p\)</span> gitt de faktiske befolkningsstørrelsene ved start og slutt av perioden, finner vi en gjennomsnittlig vekstrate som ville ha resultert i den observerte veksten over de 70 årene.</p>
+<p>Når det gjelder doblingstiden for befolkningen, er dette den tiden det tar for befolkningen å vokse til det dobbelte av sin opprinnelige størrelse ved en gitt konstant vekstrate. For en eksponensiell vekstmodell kan doblingstiden
+<span class="math notranslate nohighlight">\(T_d\)</span> beregnes ved hjelp av følgende formel, som stammer fra den generelle eksponensielle vekstligningen:</p>
+<div class="math notranslate nohighlight">
+\[T_d = \frac{\ln(2)}{\ln(1+p)}\]</div>
+<p>Her er <span class="math notranslate nohighlight">\(ln\)</span> den naturlige logaritmen og <span class="math notranslate nohighlight">\(p\)</span> er den årlige vekstraten vi har beregnet. Ved å bruke denne formelen kan vi estimere hvor mange år det vil ta for jordas befolkning å fordoble seg, gitt at den beregnede vekstraten opprettholdes og at andre faktorer ikke påvirker befolkningsveksten.</p>
+<p>La oss anta at vi har beregnet <span class="math notranslate nohighlight">\(p\)</span> fra tidligere steg. Her er Julia-koden som vil beregne doblingstiden basert på denne vekstraten</p>
+<p>Dette vil gi oss antall år det vil ta for jordas befolkning å fordoble seg ved den beregnede vekstraten.</p>
+<p><img alt="image.png" src="3_praktiske_anvendelser/attachment:image.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">doblingstid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">p</span><span class="p">)</span>
+
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;Tiden det tar for befolkningen å fordoble seg ved vekstrate p:&quot;</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">doblingstid</span><span class="p">)</span>
+
+<span class="c"># Avrundet</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;Tiden det tar for befolkningen å fordoble seg ved vekstrate p:&quot;</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">round</span><span class="p">(</span><span class="n">doblingstid</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tiden det tar for befolkningen å fordoble seg ved vekstrate p:
+42.96611204166172
+Tiden det tar for befolkningen å fordoble seg ved vekstrate p:
+43.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="funksjon-for-a-modellere-befolkningsveksten">
+<h3>Funksjon for å modellere befolkningsveksten<a class="headerlink" href="#funksjon-for-a-modellere-befolkningsveksten" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">p</span><span class="p">)</span><span class="o">^</span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1950</span><span class="p">)</span>
+
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;Befolkningen i 2025:&quot;</span><span class="p">)</span>
+
+<span class="n">println</span><span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="mi">2025</span><span class="p">))</span>
+
+<span class="c"># Printe uten e6 og e7 osv:</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;Befolkningen i 2025:&quot;</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">round</span><span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="mi">2025</span><span class="p">)</span><span class="o">/</span><span class="mf">1e6</span><span class="p">,</span><span class="w"> </span><span class="n">digits</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="s">&quot; millioner&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Befolkningen i 2025:
+8.444395259440854e6
+Befolkningen i 2025:
+8.44 millioner
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Plotting av eksponentiell vekst</span>
+<span class="k">using</span><span class="w"> </span><span class="n">Plots</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="o">.</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="w"> </span><span class="n">label</span><span class="o">=</span><span class="s">&quot;Eksponentiell vekst&quot;</span><span class="p">)</span>
+<span class="n">scatter!</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="o">=</span><span class="s">&quot;Faktisk befolkning&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">UndefVarError</span>: `t` not defined
+
+<span class="ne">Stacktrace</span>:
+ <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">top</span><span class="o">-</span><span class="n">level</span> <span class="n">scope</span>
+   <span class="o">@</span> <span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">]:</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hvorfor er de ulike?</p>
+</section>
+<section id="id2">
+<h3><a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "julia-1.9"
+        },
+        kernelOptions: {
+            name: "julia-1.9",
+            path: "./3_praktiske_anvendelser"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'julia-1.9'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="nullpunktsmetoder.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Nullpunktsmetoder - Forelesning 26.10.2023</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../x_oppgaver/Oppgaver_Uke38.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Oppgaver Uke 38</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-er-eksponentiell-vekst">Hva er Eksponentiell Vekst?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksponentiell-vekst-i-to-former">Eksponentiell vekst i to former:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksponentialfunksjon-med-eulers-tall">Eksponentialfunksjon med Eulers Tall:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksponentialfunksjon-med-basis-1-p">Eksponentialfunksjon med Basis 1 + p:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forholdet-mellom-dem">Forholdet Mellom dem:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvorfor-er-eksponentiell-vekst-viktig">Hvorfor er Eksponentiell Vekst Viktig?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#populasjonsvekst-belfolkningsdynamiikk">Populasjonsvekst (Belfolkningsdynamiikk)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#julia-oppgave">Julia Oppgave</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hvordan-kan-vi-bestemme-okningen-i-folketall-for-hvert-av-de-tretten-5-ars-intervallene">Hvordan kan vi bestemme økningen i folketall  for hvert av de tretten 5-års intervallene?</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finne-den-prosentvise-okningen">Finne den prosentvise økningen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bestemme-den-gjennomsnittlige-prosentvise-okningen-per-ar-for-alle-disse-5-ars-intervallene">Bestemme den gjennomsnittlige prosentvise økningen per år for alle disse 5-års intervallene</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bestemme-vekstrate">Bestemme Vekstrate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#betydningen-av-likningen">Betydningen av likningen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funksjon-for-a-modellere-befolkningsveksten">Funksjon for å modellere befolkningsveksten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Amir Arfan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
