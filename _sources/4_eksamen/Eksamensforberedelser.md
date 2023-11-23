@@ -39,7 +39,7 @@ Det vil bli gitt ut to prøveeksamener som jeg anbefaler at dere løser for hån
 ## Cheat-sheet
 
 Tips til å lage ditt eget cheat-sheet:
-
+* Skriv ned forskjellige typer og eksempler av typer, altså float = 1.0, int = 1, string = "1", osv.
 * Skriv ned innebygde funksjoner som du synes er vanskelig å huske, og hvordan de brukes.
 * Skriv ned hvordan du kan lage matriser og vektorer, og hvordan du kan hente ut elementer fra disse.
 * Skriv ned hvordan du kan lage funksjoner, og hvordan du bruker funksjonene
