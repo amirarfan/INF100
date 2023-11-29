@@ -183,6 +183,10 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Praktiske Anvendelser</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../3_praktiske_anvendelser/datainnlasting_og_analyse.html">Forelesning 12.10.2023: Datainnlasting og analyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_praktiske_anvendelser/nullpunktsmetoder.html">Nullpunktsmetoder - Forelesning 26.10.2023</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../3_praktiske_anvendelser/eksponentiellvekst.html">Eksponentiell Vekst - Forelesning 09.11.2023</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_praktiske_anvendelser/numeriskintegrasjon.html">Numerisk Integrasjon - Forelesning 23.11.2023</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ukentlige Oppgaver</span></p>
 <ul class="current nav bd-sidenav">
@@ -196,6 +200,16 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="oppgaver_uke38_losninger.html">Løsningsforslag Oppgaver Uke 38</a></li>
 <li class="toctree-l1"><a class="reference internal" href="oppgaver_uke39_losninger.html">Løsningsforslag Oppgaver Uke 39</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oppgaver_uke40_losninger.html">Løsningsforslag Oppgaver Uke 40</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Obligatoriske Oppgaver</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Oppgaver_Oblig1.html">Obligatorisk Oppgave 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Oppgaver_Oblig2.html">Obligatorisk Oppgave 2</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Eksamen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../4_eksamen/Eksamensforberedelser.html">Eksamensforberedelser</a></li>
 </ul>
 
     </div>
@@ -409,7 +423,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-10-12-logaritmisk-og-eksponentiell-vekst">Oppgave 10-12: Logaritmisk og Eksponentiell Vekst</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-10-eksponentiell-vekst">Oppgave 10: Eksponentiell vekst:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-11-logaritmisk-vekst">Oppgave 11: Logaritmisk vekst:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-11-logaritmisk-skala-vekst">Oppgave 11: Logaritmisk skala vekst:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-12-sammenligning">Oppgave 12: Sammenligning</a></li>
 </ul>
 </li>
@@ -526,17 +540,16 @@ document.write(`
 <li><p>Hva skjer med veksten når <span class="math notranslate nohighlight">\(r\)</span> endres til 0.1 og 0.2?</p></li>
 </ul>
 </section>
-<section id="oppgave-11-logaritmisk-vekst">
-<h3>Oppgave 11: Logaritmisk vekst:<a class="headerlink" href="#oppgave-11-logaritmisk-vekst" title="Permalink to this heading">#</a></h3>
+<section id="oppgave-11-logaritmisk-skala-vekst">
+<h3>Oppgave 11: Logaritmisk skala vekst:<a class="headerlink" href="#oppgave-11-logaritmisk-skala-vekst" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Skriv en funksjon som beregner logaritmisk vekst og bruk den til å plotte veksten med base 10 for tallene fra 1 til 10000. (Hint: <code class="docutils literal notranslate"><span class="pre">log10()</span></code>)</p></li>
+<li><p>Skriv en funksjon som gjør om den eksponentielle vekstens skala til logistisk skala (Hint: <code class="docutils literal notranslate"><span class="pre">log10()</span></code>)</p></li>
 </ul>
 </section>
 <section id="oppgave-12-sammenligning">
 <h3>Oppgave 12: Sammenligning<a class="headerlink" href="#oppgave-12-sammenligning" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Plot eksponentiell og logaritmisk vekst i samme plot.</p></li>
-<li><p>Sammenglign og diskuter forskjellene mellom logaritmisk og eksponentiell vekst.</p></li>
+<li><p>Plot de forskjellige vekstene med forskjellig rente i samme Plot</p></li>
 </ul>
 </section>
 </section>
@@ -707,7 +720,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-10-12-logaritmisk-og-eksponentiell-vekst">Oppgave 10-12: Logaritmisk og Eksponentiell Vekst</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-10-eksponentiell-vekst">Oppgave 10: Eksponentiell vekst:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-11-logaritmisk-vekst">Oppgave 11: Logaritmisk vekst:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-11-logaritmisk-skala-vekst">Oppgave 11: Logaritmisk skala vekst:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oppgave-12-sammenligning">Oppgave 12: Sammenligning</a></li>
 </ul>
 </li>

@@ -25,6 +25,9 @@ parts:
   - caption: Praktiske Anvendelser
     chapters:
     - file: 3_praktiske_anvendelser/datainnlasting_og_analyse.ipynb
+    - file: 3_praktiske_anvendelser/nullpunktsmetoder.ipynb
+    - file: 3_praktiske_anvendelser/eksponentiellvekst.ipynb
+    - file: 3_praktiske_anvendelser/numeriskintegrasjon.ipynb
   - caption: Ukentlige Oppgaver
     chapters: 
     - file: x_oppgaver/Oppgaver_Uke38.ipynb
@@ -34,8 +37,14 @@ parts:
     chapters:
     - file: x_oppgaver/oppgaver_uke38_losninger.ipynb
     - file: x_oppgaver/oppgaver_uke39_losninger.ipynb
+    - file: x_oppgaver/oppgaver_uke40_losninger.ipynb
   - caption: Obligatoriske Oppgaver
     chapters:
     - file: x_oppgaver/Oppgaver_Oblig1.ipynb
+    - file: x_oppgaver/Oppgaver_Oblig2.ipynb
+  - caption: Eksamen
+    chapters:
+    - file: 4_eksamen/Eksamensforberedelser.md
+    - file: 4_eksamen/Proveeksamen_losningsforslag.ipynb
    
       
