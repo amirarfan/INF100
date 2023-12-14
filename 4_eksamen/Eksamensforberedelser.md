@@ -36,7 +36,11 @@ Det vil bli gitt ut to prøveeksamener som jeg anbefaler at dere løser for hån
 
 * Andre Prøveeksamen (Kommer)
 
-## Cheat-sheet
+## Cheat-sheet (Oppsummeringsark)
+
+Her er et oppsummeringsark som kan brukes under eksamen. Dette er ikke et offisielt oppsummeringsark, og det er ikke garantert at alt som står her er riktig. Det er derfor viktig at du går gjennom dette arket og sjekker at alt er riktig. Dere må heller ikke ta det med på eksamen, men det er sterkt anbefalt:
+
+**[Oppsummeringsark](https://nmbu.instructure.com/files/2007985/download?download_frd=1)**
 
 Tips til å lage ditt eget cheat-sheet:
 * Skriv ned forskjellige typer og eksempler av typer, altså float = 1.0, int = 1, string = "1", osv.
