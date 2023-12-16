@@ -34,7 +34,7 @@ Det vil bli gitt ut to prøveeksamener som jeg anbefaler at dere løser for hån
 
 * [Første Prøveeksamen](https://nmbu.instructure.com/files/1998709/download?download_frd=1)
 
-* Andre Prøveeksamen (Kommer)
+* [Andre Prøveeksamen](https://nmbu.instructure.com/files/2012095/download?download_frd=1)
 
 ## Cheat-sheet (Oppsummeringsark)
 
