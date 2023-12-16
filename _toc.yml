@@ -46,5 +46,6 @@ parts:
     chapters:
     - file: 4_eksamen/Eksamensforberedelser.md
     - file: 4_eksamen/Proveeksamen_losningsforslag.ipynb
+    - file: 4_eksamen/Proveeksamen_losningsforslag_2.ipynb
    
       
